@@ -59,9 +59,11 @@ public class CommunicationThread extends Thread {
 							// do something with the response
 							String result = EntityUtils.toString(httpGetEntity);
 							Log.i (Constants.TAG, "Received def:");
-							Log.i(Constants.TAG, result);
-							serverThread.setWordDef("maria test");
-                            printWriter.println("maria test");
+//							str.substring(str.indexOf("[") + 1, str.indexOf("]"));
+							String firstResult = result.substring(result.indexOf("WordDefinition") + 1, result.indexOf("/WordDefinition"));
+							Log.i(Constants.TAG, firstResult);
+							serverThread.setWordDef(result);
+                            printWriter.println(result);
                             printWriter.flush();
 						}
 					}
